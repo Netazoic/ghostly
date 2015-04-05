@@ -1,0 +1,6 @@
+[submodule "lib/fc-evtmgr"]
+	path = lib/fc-evtmgr
+	url = git@github.com:/Netazoic/fc-evtmgr
+[submodule "lib/njs"]
+	path = lib/njs
+	url = git@github.org:/Netazoic/njs

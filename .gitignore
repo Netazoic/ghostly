@@ -1,0 +1,20 @@
+bower.json config.example.js config.js  core Gruntfile.js index.js LICENSE node_modules package.json PRIVACY.md 
+Gruntfile.js
+LICENSE
+README.md
+bower.json
+config.example.js
+core
+index.js
+node_modules/
+package.json
+PRIVACY.md
+config.js
+.project
+conf/config.dev
+conf/config.prd
+content/themes/casper
+content/themes/hikari-no-ghost-theme-1.0.3/
+content/data/netazoic-dev.db.bak
+lib/ghost/ghost-0.5.5.zip
+npm-debug.log

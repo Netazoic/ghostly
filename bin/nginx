@@ -1,0 +1,43 @@
+#!/bin/sh
+MODE=$1
+if [ ! $MODE ]; then 
+MODE="usage"
+fi
+#if [ $1 ] && [ $1 = "stop" ]; then  MODE="stop" 
+#fi
+#if [ $1 ] && [ $1 = "list" ]; then  MODE="list" 
+#fi
+CWD=$(pwd)
+cd /c/nginx-1.7.7
+if [ $MODE = "stop" ]; then
+	./nginx.exe -s stop
+	echo "Stopped nginx"
+elif [ $MODE = "list" ]; then
+	echo "Listing nginx processes"
+   	tasklist | grep nginx
+	exit
+
+elif [ $MODE = "restart" ]; then
+    echo "Restarting nginx"
+    ./nginx.exe -s stop
+    start nginx
+    echo ". . ."
+    echo "nginx restarted"
+    exit
+elif [ $MODE = "dir" ]; then
+	$( cd /c/nginx-1.7.7 )
+	exit
+elif [ $MODE = "start" ]; then
+	RUNNING_PROCESSES=$(tasklist | grep nginx | wc -l)
+	if [ $RUNNING_PROCESSES ] && [ $RUNNING_PROCESSES -gt 0 ]; then
+	   echo "nginx already running"
+	   exit
+	fi
+	start nginx
+	tasklist | grep nginx
+	exit
+else
+	echo "nginx controller"
+	echo "Specify start|restart|stop|list"
+fi
+cd $CWD
